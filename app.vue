@@ -1,10 +1,10 @@
 //HTML
 <template>
-  <div id="app1">
+  <div id="app1" class="app1">
       <div class="add__student">
         <div>
           Имя студента:
-          <input v-model="studentName">
+          <input v-model="studentName" >
         </div>
         <div>
           Возраст студента:
@@ -15,11 +15,11 @@
           <input v-model="studentAvg">
         </div>
         <div>
-          <button :on-click="addStudent" class="add__student__button">Добавить</button>
+          <button v-on:click="addStudent()" class="add__student__button">Добавить</button>
         </div>
       </div>
     <div class="student__list">
-      <h1 v-bind:key="student.id" v-bind:title="student.title" v-for="(student) in studentList"></h1>
+      <h1 v-bind:key="student.id" v-bind:title="student.title" v-for="(student) in studentList">{{ student.title }}</h1>
     </div>
   </div>
 </template>
@@ -49,7 +49,7 @@ export default defineComponent({
       studentAvg: "",
       studentList: [{
           id: 1,
-          title: 'Мотвей, 19, 4.5'
+          title: 'Матвей, 19, 4.5'
         },
         {
           id: 2,
@@ -69,7 +69,9 @@ export default defineComponent({
         id: this.nextStudentId ++,
         title: this.studentName + ", " + this.studentAge + ", " + this.studentAvg
       })
-
+      this.studentName = ""
+      this.studentAge = ""
+      this.studentAvg = ""
     }
   },
 })
