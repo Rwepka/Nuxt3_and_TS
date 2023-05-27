@@ -1,7 +1,7 @@
 <!--HTML-->
 <template>
     <div id="app1" class="app1">
-        <div class="add__student">
+        <div class="student__window">
           <div>
             Имя студента:
             <input v-model="studentName" >
@@ -15,7 +15,7 @@
             <input v-model="studentAvg">
           </div>
           <div>
-            <button @click="addStudent()" class="add__student__button">Добавить</button>
+            <button @click="addStudent()" class="add__student">Добавить</button>
           </div>
         </div>
       <div class="student__list">
@@ -26,12 +26,12 @@
   
   <!-- Стили -->
   <style lang="scss">
-  .add__student {
+  .student__window {
       display: grid;
       justify-content: start;
       justify-items: end;
   }
-  .add__student__button {
+  .add__student {
       left: -48px;
       position: relative;
   }
